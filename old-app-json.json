@@ -1,0 +1,64 @@
+{
+  "expo": {
+    "scheme": "acme",
+    "userInterfaceStyle": "automatic",
+    "orientation": "default",
+    "web": {
+      "output": "static",
+      "bundler": "metro"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "https://n"
+        }
+      ]
+    ],
+    "name": "my-app",
+    "slug": "my-app",
+    "android": {
+      "package": "com.xepiq.harmonyhive"
+    }
+  }
+}
+
+
+{
+  "expo": {
+    "android": {
+      "googleServicesFile": "./google-services.json",
+      "package": "com.xepiq.harmonyhive"
+    },
+    "ios": {
+      "googleServicesFile": "./GoogleService-Info.plist",
+      "bundleIdentifier": "com.xepiq.harmonyhive"
+    },
+    "scheme": "acme",
+    "userInterfaceStyle": "automatic",
+    "orientation": "default",
+    "web": {
+      "output": "static",
+      "bundler": "metro"
+    },
+    "plugins": [
+        [
+          "expo-router",
+          {
+            "origin": "https://n"
+          }
+        ],
+      "@react-native-firebase/app",
+      "@react-native-firebase/auth",
+      "@react-native-firebase/crashlytics",
+      [
+        "expo-build-properties",
+        {
+          "ios": {
+            "useFrameworks": "static"
+          }
+        }
+      ]
+    ]
+  }
+}

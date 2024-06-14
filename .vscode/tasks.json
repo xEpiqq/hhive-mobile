@@ -1,0 +1,75 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Toggle Zen Mode",
+            "type": "shell",
+            "command": "${command:workbench.action.toggleZenMode}",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        },
+        {
+            "label": "Show Files",
+            "type": "shell",
+            "command": "${command:workbench.view.explorer}",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        },
+
+        {
+            "label": "Run Expo",
+            "type": "shell",
+            "command": "npx expo start",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        },
+
+        {
+            "label": "Sleepy",
+            "type": "shell",
+            "command": "sleep 1",
+            "problemMatcher": [],
+            "dependsOrder": "parallel",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        },
+
+        {
+            "label": "Close Terminal",
+            "type": "shell",
+            "command": "${command:workbench.action.closePanel}",
+            "problemMatcher": [],
+            "dependsOn": "Sleepy",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        },
+    ]
+}
