@@ -143,27 +143,6 @@ const GameScreen = ({ user, setIsLoading, setShowBottomNav }) => {
     outputRange: ['0deg', '7000deg'],
   }), [spinValue]);
 
-  const fetchDownloadURLs = useCallback(async () => {
-    if (selectedSong && selectedSong.files) {
-      const downloadURLs = await Promise.all(
-        selectedSong.files.map(async (file) => {
-          try {
-            const downloadURL = await storage().ref(file.url).getDownloadURL();
-            return { ...file, downloadURL };
-          } catch (error) {
-            console.error('Error getting download URL:', error);
-            return file;
-          }
-        })
-      );
-      setSelectedSong({ ...selectedSong, files: downloadURLs });
-    }
-  }, [selectedSong]);
-
-  useEffect(() => {
-    fetchDownloadURLs();
-  }, [fetchDownloadURLs]);
-
   const onViewableItemsChanged = useCallback(({ viewableItems }) => {
     if (viewableItems.length > 0) {
       setCurrentPage(viewableItems[0].index);
@@ -335,7 +314,7 @@ const GameScreen = ({ user, setIsLoading, setShowBottomNav }) => {
                     <View className='w-full h-20 flex justify-center bg-[#FFCE00] absolute b-0 bottom-0'>
                       <AudioPlayer
                         // key={`${file.name}-${index}_audioplayer`}
-                        url="https://firebasestorage.googleapis.com/v0/b/harmonyhive-b4705.appspot.com/o/TUnrM8z359eWvkV6xnFY%2Fsongs%2F1rmeWWmcyiVwo0j4q399%2Faudio.mp3?alt=media&token=e9c82cee-2f73-4732-8eac-254737b0f16b" // Pass the download URL directly
+                        // url="https://firebasestorage.googleapis.com/v0/b/harmonyhive-b4705.appspot.com/o/TUnrM8z359eWvkV6xnFY%2Fsongs%2F1rmeWWmcyiVwo0j4q399%2Faudio.mp3?alt=media&token=e9c82cee-2f73-4732-8eac-254737b0f16b" // Pass the download URL directly
                       />
                     </View>
 
